@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public bool isPlayer1 = true;
     public Animator animator;
     public Rigidbody2D rb;
     public float movespeed;
@@ -22,15 +23,22 @@ public class Movement : MonoBehaviour
     {
 
         //Horizontal Movement only since we only want the character to move in the x direction
-        moveInput.x = Input.GetAxis("Horizontal");
-        moveInput.y = Input.GetAxis("Vertical");
+        if(isPlayer1 == true)
+        {
+            moveInput.x = Input.GetAxis("Horizontal");
+            moveInput.y = Input.GetAxis("Vertical");
+        } else
+        {
+            moveInput.x = Input.GetAxis("Horizontal2");
+            moveInput.y = Input.GetAxis("Vertical2");
+        }
         moveInput.Normalize();
 
         rb.velocity = new Vector3(moveInput.x * movespeed, rb.velocity.y, 0);
 
         // set animator values
-        animator.SetFloat("XVelocity", Mathf.Abs(moveInput.x * movespeed));
-        if (Input.GetButtonDown("Fire1"))
+        animator.SetFloat("XVelocity", Mathf.Abs(moveInput.x * movespeed)); // is player 1
+        if ((isPlayer1 && Input.GetKeyDown(KeyCode.V)) || (!isPlayer1 && Input.GetKeyDown(KeyCode.RightControl)))
         {
             Attack();
         }
@@ -56,7 +64,7 @@ public class Movement : MonoBehaviour
         animator.SetBool("isGrounded", isGrounded);
 
         // check for jump
-        if(Input.GetButtonDown("Jump") && isGrounded)
+        if(isGrounded && ( (isPlayer1 && Input.GetKeyDown(KeyCode.W)) || (!isPlayer1 && Input.GetKeyDown(KeyCode.UpArrow)) ))
         {
             rb.velocity += new Vector2(0f, JumpForce);
         }
