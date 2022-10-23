@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public Animator animator;
     public Rigidbody2D rb;
     public float movespeed;
     public float JumpForce;
@@ -27,8 +28,23 @@ public class Movement : MonoBehaviour
 
         rb.velocity = new Vector3(moveInput.x * movespeed, rb.velocity.y, 0);
 
+        // set animator values
+        animator.SetFloat("XVelocity", Mathf.Abs(moveInput.x * movespeed));
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Attack();
+        }
+
+        // flip object when traveling to the left
+        if (moveInput.x * movespeed < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        } else if (moveInput.x * movespeed > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+
         //check if we're on the ground
-        //RaycastHit hit;
         RaycastHit2D hitInfo = Physics2D.Raycast(groundPoint.position, Vector2.down, 0.3f, whatIsGround);
         if (hitInfo){
             isGrounded = true;
@@ -36,20 +52,22 @@ public class Movement : MonoBehaviour
         {
             isGrounded = false;
         }
-        //if (Physics.Raycast(groundPoint.position, Vector3.down, out hit, .3f, whatIsGround))
-        //{
-        //    isGrounded = true;
+        // set animator value
+        animator.SetBool("isGrounded", isGrounded);
 
-        //}
-        //else
-        //{
-        //    isGrounded = false;
-        //}
-
+        // check for jump
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.velocity += new Vector2(0f, JumpForce);
         }
 
+    }
+
+    void Attack ()
+    {
+        // play animation
+        animator.SetTrigger("Attack");
+        // detect enemy in range
+        // deal damage
     }
 }
