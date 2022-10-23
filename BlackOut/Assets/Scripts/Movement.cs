@@ -14,7 +14,9 @@ public class Movement : MonoBehaviour
 
     public LayerMask whatIsGround;
     public Transform groundPoint;
+    public Transform attackPoint;
     private bool isGrounded;
+
     private void Start()
     {
         
@@ -37,7 +39,8 @@ public class Movement : MonoBehaviour
         rb.velocity = new Vector3(moveInput.x * movespeed, rb.velocity.y, 0);
 
         // set animator values
-        animator.SetFloat("XVelocity", Mathf.Abs(moveInput.x * movespeed)); // is player 1
+        animator.SetFloat("XVelocity", Mathf.Abs(moveInput.x * movespeed));
+
         if ((isPlayer1 && Input.GetKeyDown(KeyCode.V)) || (!isPlayer1 && Input.GetKeyDown(KeyCode.RightControl)))
         {
             Attack();
@@ -76,6 +79,18 @@ public class Movement : MonoBehaviour
         // play animation
         animator.SetTrigger("Attack");
         // detect enemy in range
-        // deal damage
+        Collider2D[] hitStuff = Physics2D.OverlapCircleAll(attackPoint.position, 0.7f);
+        foreach(Collider2D hitThing in hitStuff)
+        {
+            if ((isPlayer1 && hitThing.name == "Player2Sprite/Collision") || (!isPlayer1 && hitThing.name == "Player1Sprite/Collision"))
+            {
+                DoDamageTo(hitThing.GetComponentInParent<DamageAndHealth>());
+                break;
+            }
+        }
+        void DoDamageTo(DamageAndHealth victim)
+        {
+            victim.TakeDamage(20);
+        }
     }
 }
