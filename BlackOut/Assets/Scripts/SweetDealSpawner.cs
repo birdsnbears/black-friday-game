@@ -6,14 +6,14 @@ public class SweetDealSpawner : MonoBehaviour
 {
     public SweetDeal SweetDealPrefab;
     public Sprite[] SweetDealSprites;
-    public float spawnRateInSeconds = 1f;
+    public float spawnRateInSeconds;
 
     [SerializeField]
-    float _spawnHeight = 3f;
+    float _spawnHeight;
     [SerializeField]
-    float _spawnLeftBound = -15f;
+    float _spawnLeftBound;
     [SerializeField]
-    float _spawnWidth = 30f;
+    float _spawnWidth;
 
     private float timeElapsed = 0f;
 
