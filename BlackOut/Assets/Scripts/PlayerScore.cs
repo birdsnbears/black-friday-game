@@ -9,6 +9,7 @@ public class PlayerScore : MonoBehaviour
 
     public Transform DropLocation;
     public TMPro.TextMeshProUGUI ScoreDisplay;
+    public float VerticalDropForce;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +45,8 @@ public class PlayerScore : MonoBehaviour
             victim.transform.position = DropLocation.position;
             // renable the deal
             victim.gameObject.SetActive(true);
+            // shoot the deal
+            victim.GetComponent<Rigidbody2D>().velocity += new Vector2(Random.Range(0, 6) - 3f, VerticalDropForce);
             // deduct from score
             _score--;
             ScoreDisplay.text = $"{_score}";

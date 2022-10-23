@@ -9,27 +9,35 @@ public class DamageAndHealth : MonoBehaviour
 
     public HealthBar healthBar;
 
+    private PlayerScore score;
+
     void Start()
     {
         currentHealth = maxHealth;
 
         healthBar.SetMaxHealth(currentHealth);
+
+        score = GetComponent<PlayerScore>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //when playerGets hurt
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            TakeDamage(20);
-        }
+
     }
     
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
 
         healthBar.SetHealth(currentHealth);
+
+        // check if health bar gets got
+        if(currentHealth <= 0)
+        {
+            score.DropSweetDeal();
+            currentHealth = maxHealth;
+            healthBar.SetMaxHealth(maxHealth);
+        }
     }
 }
