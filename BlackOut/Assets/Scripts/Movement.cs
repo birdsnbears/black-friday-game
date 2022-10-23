@@ -28,7 +28,7 @@ public class Movement : MonoBehaviour
         rb.velocity = new Vector3(moveInput.x * movespeed, rb.velocity.y, 0);
 
         //check if we're on the ground
-        RaycastHit hit;
+        //RaycastHit hit;
         RaycastHit2D hitInfo = Physics2D.Raycast(groundPoint.position, Vector2.down, 0.3f, whatIsGround);
         if (hitInfo){
             isGrounded = true;

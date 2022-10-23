@@ -50,10 +50,10 @@ public class PlayerScore : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         SweetDeal potentialScore = collision.transform.GetComponent<SweetDeal>();
-        if(potentialScore)
+        if (potentialScore)
         {
             AddSweetDeal(potentialScore);
         }
