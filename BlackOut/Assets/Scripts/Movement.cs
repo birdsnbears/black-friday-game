@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public Rigidbody rb;
+    public Rigidbody2D rb;
     public float movespeed;
     public float JumpForce;
 
@@ -29,19 +29,26 @@ public class Movement : MonoBehaviour
 
         //check if we're on the ground
         RaycastHit hit;
-        if (Physics.Raycast(groundPoint.position, Vector3.down, out hit, .3f, whatIsGround))
-        {
+        RaycastHit2D hitInfo = Physics2D.Raycast(groundPoint.position, Vector2.down, 0.3f, whatIsGround);
+        if (hitInfo){
             isGrounded = true;
-
-        }
-        else
+        } else
         {
             isGrounded = false;
         }
+        //if (Physics.Raycast(groundPoint.position, Vector3.down, out hit, .3f, whatIsGround))
+        //{
+        //    isGrounded = true;
+
+        //}
+        //else
+        //{
+        //    isGrounded = false;
+        //}
 
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
-            rb.velocity += new Vector3(0f, JumpForce, 0f);
+            rb.velocity += new Vector2(0f, JumpForce);
         }
 
     }
