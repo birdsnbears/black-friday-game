@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 2057228394907847025}
   - component: {fileID: 2057228394907847031}
   m_Layer: 0
-  m_Name: BackgroundNPC (32)
+  m_Name: BackgroundNPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
