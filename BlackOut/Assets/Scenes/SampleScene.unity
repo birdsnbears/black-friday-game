@@ -11999,12 +11999,12 @@ Canvas:
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
-  m_OverrideSorting: 0
+  m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!1 &637834226
 GameObject:
@@ -24618,12 +24618,12 @@ Canvas:
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
-  m_OverrideSorting: 0
+  m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!224 &1237116883
 RectTransform:
@@ -30077,7 +30077,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3d5f5dabafb20624492178a986e32dfe, type: 3}
   - {fileID: 21300000, guid: 48688015625d51649bc8ef07425683ae, type: 3}
   spawnRateInSeconds: 1
-  _spawnHeight: 3
+  _spawnHeight: 8
   _spawnLeftBound: -15
   _spawnWidth: 30
 --- !u!4 &1397680934
@@ -35093,7 +35093,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh44952
+  m_Name: pb_Mesh31788
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

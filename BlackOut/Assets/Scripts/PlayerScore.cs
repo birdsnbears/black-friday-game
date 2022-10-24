@@ -63,6 +63,7 @@ public class PlayerScore : MonoBehaviour
             victim.transform.position = DropLocation.position;
             // renable the deal
             victim.gameObject.SetActive(true);
+            victim.ResetDespawnTimer();
             // shoot the deal
             victim.GetComponent<Rigidbody2D>().velocity += new Vector2(Random.Range(0, 6) - 3f, VerticalDropForce);
             // deduct from score
