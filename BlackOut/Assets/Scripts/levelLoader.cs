@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class levelLoader : MonoBehaviour
 {
 
-    public Animator transition;
+    //public Animator transition;
 
     public float transitionTime = 1f;
 
@@ -27,6 +27,12 @@ public class levelLoader : MonoBehaviour
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex +1));
     }
 
+    public void ReturnToMainMenu()
+    {
+        /*Application.LoadLevel("Main Menu") ;*/
+        SceneManager.LoadScene("Main Menu", LoadSceneMode.Single);
+    }
+
     public void QuitGame()
     {
         Debug.Log("Quit");
@@ -36,10 +42,10 @@ public class levelLoader : MonoBehaviour
     IEnumerator LoadLevel(int levelIndex)
     {
         //play animation
-        transition.SetTrigger("Start");
+        //transition.SetTrigger("Start");
 
         yield return new WaitForSeconds(1);
 
-        SceneManager.LoadScene(levelIndex);
+        SceneManager.LoadScene(levelIndex, LoadSceneMode.Single);
     }
 }

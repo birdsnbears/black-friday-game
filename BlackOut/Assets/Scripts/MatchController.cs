@@ -11,6 +11,9 @@ public class MatchController : MonoBehaviour
     public PlayerScore Player2;
     public SweetDealSpawner spawner;
 
+    public GameObject player1winPanel;
+    public GameObject player2winPanel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,10 +38,12 @@ public class MatchController : MonoBehaviour
             if(Player1.Score > Player2.Score)
             {
                 // Player 1 won
+                player1winPanel.SetActive(true);
                 // transition to Game Over Screen
             } else
             {
                 // Player 2 won
+                player2winPanel.SetActive(true);
                 // transition to Game Over Screen
             }
         }
