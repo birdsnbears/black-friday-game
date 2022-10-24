@@ -453,6 +453,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5179396730609941051, guid: b8c6a6a5516e9a649b4df60bb3d768c1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5179396730614664244, guid: b8c6a6a5516e9a649b4df60bb3d768c1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -488,6 +492,14 @@ PrefabInstance:
     - target: {fileID: 5179396730792208936, guid: b8c6a6a5516e9a649b4df60bb3d768c1, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179396730971180552, guid: b8c6a6a5516e9a649b4df60bb3d768c1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179396730998218501, guid: b8c6a6a5516e9a649b4df60bb3d768c1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -447
       objectReference: {fileID: 0}
     - target: {fileID: 5179396731121407993, guid: b8c6a6a5516e9a649b4df60bb3d768c1, type: 3}
       propertyPath: m_RootOrder
@@ -557,5 +569,39 @@ PrefabInstance:
       propertyPath: m_VideoClip
       value: 
       objectReference: {fileID: 32900000, guid: 4a22bf31c8b508745b16617c2bab1c26, type: 3}
+    - target: {fileID: 5179396732578573210, guid: b8c6a6a5516e9a649b4df60bb3d768c1, type: 3}
+      propertyPath: m_text
+      value: 'Team Manager:
+
+        - Trisha Albano
+
+        Programming:
+
+        -
+        Jose Salcedo
+
+        - Louis Chu
+
+        Art:
+
+        - Kameron Hamilton
+
+        -
+        Kevin Hernandez
+
+        - Mariah Finley-Gardner'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179396732578573210, guid: b8c6a6a5516e9a649b4df60bb3d768c1, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179396732578573210, guid: b8c6a6a5516e9a649b4df60bb3d768c1, type: 3}
+      propertyPath: m_margin.w
+      value: -226.30014
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179396732578573210, guid: b8c6a6a5516e9a649b4df60bb3d768c1, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8c6a6a5516e9a649b4df60bb3d768c1, type: 3}
