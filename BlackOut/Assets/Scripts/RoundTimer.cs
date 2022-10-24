@@ -7,6 +7,12 @@ public class RoundTimer : MonoBehaviour
     float currentTime = 0f;
     public float startingTimeInSeconds = 65f;
     public TMPro.TextMeshProUGUI DisplayText;
+    public MatchController matchController;
+
+    [SerializeField]
+    float TieTimeAmount;
+
+    bool TimerPaused = false;
 
     // Start is called before the first frame update
     void Start()
@@ -17,22 +23,29 @@ public class RoundTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(currentTime > 0)
+        if(!TimerPaused && currentTime > 0)
         {
             currentTime -= Time.deltaTime;
             DisplayText.text = currentTime.ToString("0");
         } else
         {
-            // timer has run out!
-            GameOver();
+            if (!TimerPaused)
+            {
+                matchController.GameOver();
+            }
         }
 
     }
 
-    public void GameOver()
+    public void StartTimer()
     {
-        // TODO: replace this with something that prompts the end of the game.
-        Debug.Log("Timer has run out!");
-        Time.timeScale = 0;
+        TimerPaused = false;
+    }
+
+    public void ResetForTie()
+    {
+        currentTime = TieTimeAmount;
+        DisplayText.text = currentTime.ToString("0");
+        TimerPaused = true;
     }
 }

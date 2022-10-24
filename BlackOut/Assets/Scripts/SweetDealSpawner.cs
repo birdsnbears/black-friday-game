@@ -15,22 +15,27 @@ public class SweetDealSpawner : MonoBehaviour
     [SerializeField]
     float _spawnWidth;
 
+    private bool isPaused = false;
     private float timeElapsed = 0f;
+    private List<SweetDeal> spawnedSweetDeals;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        spawnedSweetDeals = new List<SweetDeal>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeElapsed += Time.deltaTime;
-        if(timeElapsed >= spawnRateInSeconds)
+        if(isPaused == false)
         {
-            timeElapsed -= spawnRateInSeconds;
-            _spawn();
+            timeElapsed += Time.deltaTime;
+            if (timeElapsed > spawnRateInSeconds)
+            {
+                timeElapsed -= spawnRateInSeconds;
+                _spawn();
+            }
         }
     }
 
@@ -38,7 +43,8 @@ public class SweetDealSpawner : MonoBehaviour
     {
         Sprite randomSweetDealSprite = _getRandomSweetDealSprite();
         SweetDealPrefab.InitializeSprite(randomSweetDealSprite);
-        Instantiate(SweetDealPrefab, _generateSpawnPosition(), Quaternion.identity).GetComponent<SweetDeal>();
+        SweetDeal victim = Instantiate(SweetDealPrefab, _generateSpawnPosition(), Quaternion.identity).GetComponent<SweetDeal>();
+        spawnedSweetDeals.Add(victim);
     }
 
     Sprite _getRandomSweetDealSprite()
@@ -57,5 +63,19 @@ public class SweetDealSpawner : MonoBehaviour
 
     }
 
-
+    public void SetupTieBreak()
+    {
+        // delete all previously spawned SweetDeals
+        foreach(SweetDeal sweetdeal in spawnedSweetDeals)
+        {
+            Destroy(sweetdeal.gameObject);
+        }
+        spawnedSweetDeals.Clear();
+        // make sure only one new sweet deal spawns
+        isPaused = true;
+        // below was copy pasted from _spawn. But I replaced the spawn position with a preset coordinate
+        Sprite randomSweetDealSprite = _getRandomSweetDealSprite();
+        SweetDealPrefab.InitializeSprite(randomSweetDealSprite);
+        Instantiate(SweetDealPrefab, new Vector3(0, _spawnHeight, 0), Quaternion.identity).GetComponent<SweetDeal>();
+    }
 }

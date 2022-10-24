@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class PlayerScore : MonoBehaviour
 {
+    public int Score { get { return _score; } }
     private int _score;
     private List<SweetDeal> sweetDealTracker = new List<SweetDeal>();
 
     public Transform DropLocation;
     public TMPro.TextMeshProUGUI ScoreDisplay;
     public float VerticalDropForce;
+
+    // for tie management
+    public MatchController matchController;
+    public RoundTimer roundTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +28,13 @@ public class PlayerScore : MonoBehaviour
         
     }
 
+    public void ResetScore()
+    {
+        _score = 0;
+        ScoreDisplay.text = $"{_score}";
+        sweetDealTracker.Clear();
+    }
+
     public void AddSweetDeal(SweetDeal theDeal)
     {
         // add to score
@@ -32,6 +44,12 @@ public class PlayerScore : MonoBehaviour
         theDeal.gameObject.SetActive(false);
         // store sweetDeal into tracker
         sweetDealTracker.Add(theDeal);
+
+        // In case of tie...
+        if (matchController.IsTieBreak)
+        {
+            roundTimer.StartTimer();
+        }
     }
 
     public void DropSweetDeal()
@@ -50,6 +68,12 @@ public class PlayerScore : MonoBehaviour
             // deduct from score
             _score--;
             ScoreDisplay.text = $"{_score}";
+
+            // In case of tie...
+            if (matchController.IsTieBreak)
+            {
+                roundTimer.ResetForTie();
+            }
         }
     }
 

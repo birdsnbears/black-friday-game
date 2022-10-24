@@ -11511,6 +11511,8 @@ MonoBehaviour:
   DropLocation: {fileID: 1906687928}
   ScoreDisplay: {fileID: 1403040915}
   VerticalDropForce: 8
+  matchController: {fileID: 1397680935}
+  roundTimer: {fileID: 641978937}
 --- !u!114 &493535624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12174,8 +12176,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96dbf7ba70c684242be1362ae2effe3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingTimeInSeconds: 120
+  startingTimeInSeconds: 10
   DisplayText: {fileID: 641978938}
+  matchController: {fileID: 1397680935}
+  TieTimeAmount: 5
 --- !u!114 &641978938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30036,6 +30040,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1397680934}
   - component: {fileID: 1397680933}
+  - component: {fileID: 1397680935}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -30068,7 +30073,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2ff69654e5c66ee43b9fe23ef2e53c7b, type: 3}
   - {fileID: 21300000, guid: 3d5f5dabafb20624492178a986e32dfe, type: 3}
   - {fileID: 21300000, guid: 48688015625d51649bc8ef07425683ae, type: 3}
-  spawnRateInSeconds: 1
+  spawnRateInSeconds: 15
   _spawnHeight: 3
   _spawnLeftBound: -15
   _spawnWidth: 30
@@ -30087,6 +30092,22 @@ Transform:
   m_Father: {fileID: 1833559218}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1397680935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397680932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a458d4dc4685f054a80a23d47e67150d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: {fileID: 641978937}
+  Player1: {fileID: 1547277588}
+  Player2: {fileID: 493535623}
+  spawner: {fileID: 1397680933}
 --- !u!1 &1399958643
 GameObject:
   m_ObjectHideFlags: 0
@@ -36068,6 +36089,8 @@ MonoBehaviour:
   DropLocation: {fileID: 1980697881}
   ScoreDisplay: {fileID: 1943241041}
   VerticalDropForce: 8
+  matchController: {fileID: 1397680935}
+  roundTimer: {fileID: 641978937}
 --- !u!50 &1547277589
 Rigidbody2D:
   serializedVersion: 4
