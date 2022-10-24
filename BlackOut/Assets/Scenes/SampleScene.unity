@@ -11484,8 +11484,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493535621}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.22, y: 1.407, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalPosition: {x: 5.22, y: 2.37, z: 0}
+  m_LocalScale: {x: -1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1286496013}
@@ -11527,6 +11527,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  regenBufferInSeconds: 1
+  regenInSeconds: 0.25
+  regenAmount: 5
   healthBar: {fileID: 2055561744}
 --- !u!114 &493535625
 MonoBehaviour:
@@ -12176,7 +12179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96dbf7ba70c684242be1362ae2effe3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingTimeInSeconds: 10
+  startingTimeInSeconds: 120
   DisplayText: {fileID: 641978938}
   matchController: {fileID: 1397680935}
   TieTimeAmount: 5
@@ -30073,7 +30076,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2ff69654e5c66ee43b9fe23ef2e53c7b, type: 3}
   - {fileID: 21300000, guid: 3d5f5dabafb20624492178a986e32dfe, type: 3}
   - {fileID: 21300000, guid: 48688015625d51649bc8ef07425683ae, type: 3}
-  spawnRateInSeconds: 15
+  spawnRateInSeconds: 1
   _spawnHeight: 3
   _spawnLeftBound: -15
   _spawnWidth: 30
@@ -36047,9 +36050,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547277582}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.22, y: 1.407, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: -5.22, y: 2.4, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 460260717}
   - {fileID: 637834227}
@@ -36073,6 +36076,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  regenBufferInSeconds: 1
+  regenInSeconds: 0.25
+  regenAmount: 5
   healthBar: {fileID: 1945159970}
 --- !u!114 &1547277588
 MonoBehaviour:

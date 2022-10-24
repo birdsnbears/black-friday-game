@@ -49,10 +49,10 @@ public class Movement : MonoBehaviour
         // flip object when traveling to the left
         if (moveInput.x * movespeed < 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(-transform.localScale.y, transform.localScale.y, transform.localScale.z);
         } else if (moveInput.x * movespeed > 0)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(transform.localScale.y, transform.localScale.y, transform.localScale.z);
         }
 
         //check if we're on the ground

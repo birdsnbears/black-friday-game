@@ -53,7 +53,7 @@ public class SweetDealSpawner : MonoBehaviour
         {
             return null;
         }
-        int randIndex = Random.Range(0, SweetDealSprites.Length - 1);
+        int randIndex = Random.Range(0, SweetDealSprites.Length);
         return SweetDealSprites[randIndex];
     }
 
