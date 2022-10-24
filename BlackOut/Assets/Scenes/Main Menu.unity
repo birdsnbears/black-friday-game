@@ -541,9 +541,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5179396731804839690, guid: b8c6a6a5516e9a649b4df60bb3d768c1, type: 3}
+      propertyPath: m_text
+      value: BLACK FRIDAY BRAWL
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179396731907684610, guid: b8c6a6a5516e9a649b4df60bb3d768c1, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 319202e1b80b46c41b76f97a561ca84b, type: 3}
     - target: {fileID: 5179396731916368444, guid: b8c6a6a5516e9a649b4df60bb3d768c1, type: 3}
       propertyPath: m_Looping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5179396731916368444, guid: b8c6a6a5516e9a649b4df60bb3d768c1, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 4a22bf31c8b508745b16617c2bab1c26, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8c6a6a5516e9a649b4df60bb3d768c1, type: 3}
